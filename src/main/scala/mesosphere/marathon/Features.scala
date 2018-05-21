@@ -2,9 +2,6 @@ package mesosphere.marathon
 
 object Features {
 
-  //Use non-blocking IO when proxying requests
-  lazy val ASYNC_PROXY = "async_proxy"
-
   //enable VIP UI
   lazy val VIPS = "vips"
 
@@ -29,8 +26,7 @@ object Features {
     EXTERNAL_VOLUMES -> "Enable external volumes support in Marathon",
     SECRETS -> "Enable support for secrets in Marathon (experimental)",
     GPU_RESOURCES -> "Enable support for GPU in Marathon (experimental)",
-    MAINTENANCE_MODE -> "Enable support for maintenance mode  in Marathon (experimental)",
-    ASYNC_PROXY -> "Use non-blocking IO when proxying requests"
+    MAINTENANCE_MODE -> "Enable support for maintenance mode  in Marathon (experimental)"
   )
 
   def description: String = {
