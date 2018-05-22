@@ -24,7 +24,9 @@ trait FeaturesConf extends ScallopConf {
 
   lazy val deprecatedFeatures: Set[DeprecatedFeatures.DeprecatedFeature] = deprecatedFeatureKeys.get match {
     case Some(dfKeys) =>
-      val f = parseFeatures(dfKeys).map { dfKey => DeprecatedFeatures.all.find(_.key == dfKey).get }
+      val f = parseFeatures(dfKeys).map { dfKey =>
+        DeprecatedFeatures.all.find(_.key == dfKey).getOrElse { throw new RuntimeException("We should not see this") }
+      }
       DeprecatedFeatures.warnOrFail(f)
       f
     case None =>
